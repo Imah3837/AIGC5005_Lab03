@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/recordsapp/__init__.py
+src/recordsapp/aggregations.py
+src/recordsapp/config.py
+src/recordsapp/models.py
+src/recordsapp/report.py
+src/recordsapp/sources.py
+src/recordsapp.egg-info/PKG-INFO
+src/recordsapp.egg-info/SOURCES.txt
+src/recordsapp.egg-info/dependency_links.txt
+src/recordsapp.egg-info/requires.txt
+src/recordsapp.egg-info/top_level.txt
+tests/test_models.py
