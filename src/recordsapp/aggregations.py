@@ -41,6 +41,5 @@ class AverageRatingByLanguage(Aggregation):
                 ratings[show.language].append(show.rating)
 
         return {
-            language: sum(values) / len(values)
-            for language, values in ratings.items()
+            language: sum(values) / len(values) for language, values in ratings.items()
         }

@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
-import requests
 
+import requests
 
 SOURCE_URL = "https://api.tvmaze.com/shows?page=0"
 OUTPUT = Path("summary.json")
@@ -42,8 +42,7 @@ def average_rating_by_language(records):
             ratings[language].append(rating)
 
     averages = {
-        language: sum(values) / len(values)
-        for language, values in ratings.items()
+        language: sum(values) / len(values) for language, values in ratings.items()
     }
 
     return averages

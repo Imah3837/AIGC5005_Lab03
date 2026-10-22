@@ -1,12 +1,12 @@
 import requests
 
 from recordsapp import (
+    OUTPUT_PATH,
+    SOURCE_URL,
     AverageRatingByLanguage,
     DataSource,
-    OUTPUT_PATH,
     ReportWriter,
     ShowsPerGenre,
-    SOURCE_URL,
 )
 
 
@@ -44,10 +44,7 @@ def main():
         print(f"Summary written to {OUTPUT_PATH}")
 
     except requests.RequestException:
-        print(
-            "Could not download the records. "
-            "Please check your internet connection."
-        )
+        print("Could not download the records. Please check your internet connection.")
 
 
 if __name__ == "__main__":
