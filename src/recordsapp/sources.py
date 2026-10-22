@@ -1,17 +1,27 @@
 import requests
 
-from .config import TIMEOUT
-from .models import Show
+from recordsapp.models import Show
 
 
 class DataSource:
-    """Download television show records from an API."""
+    """Download and convert television show data."""
 
-    def fetch(self, url):
-        """Download data and return a list of Show objects."""
-        response = requests.get(url, timeout=TIMEOUT)
+    def fetch(self, url: str) -> list[Show]:
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
 
         data = response.json()
 
-        return [Show.from_dictionary(item) for item in data]
+        return [
+            Show(
+                name=item.get("name"),
+                language=item.get("language"),
+                genres=item.get("genres"),
+                rating=(
+                    item.get("rating", {}).get("average")
+                    if item.get("rating")
+                    else None
+                ),
+            )
+            for item in data
+        ]

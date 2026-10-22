@@ -34,6 +34,26 @@ class TestShow(unittest.TestCase):
         self.assertEqual(show.genres, [])
         self.assertIsNone(show.rating)
 
+    def test_empty_genres(self):
+        show = Show(
+            name="Example",
+            language="English",
+            genres=[],
+            rating=5.0,
+        )
+
+        self.assertEqual(show.genres, [])
+
+    def test_none_rating(self):
+        show = Show(
+            name="Example",
+            language="English",
+            genres=["Drama"],
+            rating=None,
+        )
+
+        self.assertIsNone(show.rating)
+
 
 if __name__ == "__main__":
     unittest.main()
